@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepSeek-V3 MCP 응답</title>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .query {
+            background-color: #f0f7ff;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 20px;
+        }
+        .response {
+            padding: 15px;
+            border-radius: 6px;
+            background-color: #f5f5f5;
+            border-left: 4px solid #2ecc71;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        pre {
+            background-color: #f8f8f8;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DeepSeek-V3 MCP 응답</h1>
+        
+        <div class="query">
+            <h3>질문:</h3>
+            <p>{{ query }}</p>
+        </div>
+        
+        <div class="response">
+            <h3>응답:</h3>
+            <div>
+                {% if "```" in result %}
+                    {% for part in result.split('```') %}
+                        {% if loop.index % 2 == 0 %}
+                            <pre><code>{{ part }}</code></pre>
+                        {% else %}
+                            <p>{{ part|replace('\n', '<br>')|safe }}</p>
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    <p>{{ result|replace('\n', '<br>')|safe }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
+ 

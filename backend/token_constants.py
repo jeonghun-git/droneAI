@@ -1,0 +1,13 @@
+# DeepSeek V3 모델용 특수 토큰 상수
+TOOL_CALLS_BEGIN = "<｜tool▁calls▁begin｜>"
+TOOL_CALL_BEGIN = "<｜tool▁call▁begin｜>"
+TOOL_SEP = "<｜tool▁sep｜>"
+TOOL_CALL_END = "<｜tool▁call▁end｜>"
+TOOL_CALLS_END = "<｜tool▁calls▁end｜>"
+TOOL_OUTPUTS_BEGIN = "<｜tool▁outputs▁begin｜>"
+TOOL_OUTPUT_BEGIN = "<｜tool▁output▁begin｜>"
+TOOL_OUTPUT_END = "<｜tool▁output▁end｜>"
+TOOL_OUTPUTS_END = "<｜tool▁outputs▁end｜>"
+END_OF_SENTENCE = "<｜end▁of▁sentence｜>"
+USER = "<｜User｜>"
+ASSISTANT = "<｜Assistant｜>"
